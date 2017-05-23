@@ -17,7 +17,7 @@ class Program
             //Split the input
             var splitLine = line.Split(',');
             
-            //Resort it in a list
+            //Group by the element to sort the occurences.
             var g = splitLine.GroupBy( i => i ).OrderByDescending(group => group.Count());
             
             //Find the highest count;
