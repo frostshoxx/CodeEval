@@ -1,4 +1,3 @@
-/* A work in progress, I'm getting partial result here */
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +13,22 @@ class Program
             string line = reader.ReadLine();
             if (null == line)
                 continue;
-            //Split the output
+            
+            //Split the input
             var splitLine = line.Split(',');
-            var inputList = splitLine.ToList();
+            
+            //Resort it in a list
             var g = splitLine.GroupBy( i => i ).OrderByDescending(group => group.Count());
-            //Print out the result
-            Console.WriteLine(g.First().Key);
+            
+            //Find the highest count;
+            var highestOcc = g.First();
+            
+            //Print out the number if its occurence is more than half of the input size
+            if (highestOcc.Count() > (splitLine.Count()/2))
+                Console.WriteLine(g.First().Key);
+            //Otherwise, print "None"
+            else
+                Console.WriteLine("None");
           
         }
     }
