@@ -1,2 +1,2 @@
 # CodeEval
-Some solution for code eval
+Some solutions for code eval
