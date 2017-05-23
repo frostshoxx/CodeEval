@@ -1,3 +1,4 @@
+/* A work in progress, I'm getting partial result here */
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,11 @@ class Program
                 continue;
             //Split the output
             var splitLine = line.Split(',');
-            //Put them to list
             var inputList = splitLine.ToList();
-            //Group them up and sort by count descending
             var g = splitLine.GroupBy( i => i ).OrderByDescending(group => group.Count());
-            //Print it out
-            Console.WriteLine( "{0} {1}", grp.Key, grp.Count() );
+            //Print out the result
+            Console.WriteLine(g.First().Key);
+          
         }
     }
 }
